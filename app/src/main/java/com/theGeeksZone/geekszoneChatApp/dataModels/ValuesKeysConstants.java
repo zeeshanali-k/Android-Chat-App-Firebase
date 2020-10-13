@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ValuesKeysConstants {
+    
+    //NOTE: there maybe some keys that are never used in the app.
 
     //users collection name and data keys
     public static final String USERS_COLLECTION_NAME="users";
