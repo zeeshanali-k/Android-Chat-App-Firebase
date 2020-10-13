@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+
+        <variable
+            name="isSigningIn"
+            type="boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:focusableInTouchMode="true"
+        tools:context=".appAuthentication.ui.login.AppLoginFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/authentication_fail_error_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="@id/app_login_email_input_field"
+            app:layout_constraintEnd_toEndOf="@id/app_login_email_input_field"
+            app:layout_constraintBottom_toTopOf="@id/app_login_email_input_field"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold"
+            android:padding="2dp"
+            android:layout_margin="5dp"
+            android:visibility="gone"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/app_login_email_input_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fadingEdge="vertical"
+            android:textColorHint="@android:color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/app_Login_guideline_End"
+            app:layout_constraintStart_toEndOf="@+id/app_Login_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/app_login_guideline_horizontal_up"
+            app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
+            app:startIconTint="@color/colorAccent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_email_etv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/app_login_password_input_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@android:color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/app_Login_guideline_End"
+            app:layout_constraintStart_toEndOf="@+id/app_Login_guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/app_login_email_input_field"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24"
+            app:startIconTint="@color/colorAccent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_password_etv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_login_btn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:padding="15dp"
+            android:text="@string/app_login"
+            android:textColor="@android:color/black"
+            app:backgroundTint="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="@id/app_login_password_input_field"
+            app:layout_constraintStart_toStartOf="@id/app_login_password_input_field"
+            app:layout_constraintTop_toBottomOf="@id/app_login_password_input_field" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/app_login_register_btn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="15dp"
+            android:text="@string/app_sign_up"
+            android:textColor="@android:color/black"
+            app:backgroundTint="@color/btnColorOne"
+            app:layout_constraintEnd_toEndOf="@id/main_login_btn"
+            app:layout_constraintStart_toStartOf="@id/main_login_btn"
+            app:layout_constraintTop_toBottomOf="@id/main_login_btn" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:visibility="@{isSigningIn?View.VISIBLE:View.GONE}"
+            app:layout_constraintTop_toTopOf="@id/main_login_btn"
+            app:layout_constraintBottom_toBottomOf="@id/app_login_register_btn"
+            app:layout_constraintStart_toStartOf="@id/main_login_btn"
+            app:layout_constraintEnd_toEndOf="@id/app_login_register_btn"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/app_Login_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="45dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/app_Login_guideline_End"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="45dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/app_login_guideline_horizontal_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="100dp" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{isSigningIn?View.INVISIBLE:View.VISIBLE}"
+            app:constraint_referenced_ids="app_login_register_btn,main_login_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        tools:context=".appAuthentication.ui.login.AuthenticationActivity">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/app_authentication_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Login"
+            app:titleTextColor="@color/colorAccent"
+            android:background="@color/colorPrimary"
+            />
+
+        <fragment
+            android:id="@+id/authentication_activity_frag_host"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/app_authentication_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/authentication_activity_nav_graph" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

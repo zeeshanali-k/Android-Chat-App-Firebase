@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.theGeeksZone.geekszoneChatApp.dataModels.User"/>
+        <import type="com.theGeeksZone.geekszoneChatApp.mainPkg.usersPkg.OnProfileRvItemClickListener"/>
+
+        <variable
+            name="profileClickListener"
+            type="OnProfileRvItemClickListener" />
+
+        <variable
+            name="userData"
+            type="User" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@android:color/transparent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="15dp"
+            app:cardBackgroundColor="@color/colorPrimaryDark">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/users_list_rv_user_dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/profile_place_holder"
+                    app:imageViewSetter="@{userData.photo_url}"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/users_list_rv_user_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/users_list_rv_user_dp"
+                    app:layout_constraintEnd_toStartOf="@id/users_list_rv_audio_call_btn"
+                    android:gravity="start"
+                    android:padding="5dp"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    android:text="@{userData.full_name,default=`Zeeshan Ali`}"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintTop_toTopOf="@id/users_list_rv_user_dp"
+                    app:layout_constraintBottom_toBottomOf="@id/users_list_rv_user_dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/users_list_rv_video_call_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    style="@style/MBCustomStyle"
+                    android:onClick="@{()->profileClickListener.onCallClick(`video`,userData.fcm_token)}"
+                    app:icon="@drawable/ic_baseline_videocam_24"
+                    android:layout_marginEnd="10dp" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/users_list_rv_audio_call_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/users_list_rv_video_call_btn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    style="@style/MBCustomStyle"
+                    android:onClick="@{()->profileClickListener.onCallClick(`audio`,userData.fcm_token)}"
+                    app:icon="@drawable/ic_baseline_call_24"
+                    android:layout_marginEnd="5dp"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

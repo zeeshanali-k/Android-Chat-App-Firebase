@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email_verification_bsd_tv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            android:textColorHint="@android:color/white"
+            app:endIconTint="@color/colorAccent"
+            app:startIconTint="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent"
+            android:layout_margin="10dp"
+            app:helperTextTextColor="@color/colorAccent"
+            app:startIconDrawable="@drawable/ic_baseline_alternate_email_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:inputType="textPassword"
+                android:hint="@string/prompt_password"
+                android:id="@+id/email_verf_password_bsd_etv" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bsd_password_submit_btn"
+            app:layout_constraintTop_toBottomOf="@id/email_verification_bsd_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="@color/btnColorTwo"
+            android:textColor="@android:color/black"
+            android:text="Submit"
+            android:padding="5dp"
+            android:layout_margin="5dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

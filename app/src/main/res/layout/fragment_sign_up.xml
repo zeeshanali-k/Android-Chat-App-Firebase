@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="isSigningUp"
+            type="boolean" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:background="@color/colorPrimaryDark"
+        tools:context=".appAuthentication.ui.login.SignUpFragment">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/signup_error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/app_sign_up_guidelineUp"
+        app:layout_constraintStart_toStartOf="@id/app_sign_up_email"
+        app:layout_constraintEnd_toEndOf="@id/app_sign_up_email"
+        android:layout_marginBottom="5dp"
+        android:padding="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/app_sign_up_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/app_sign_up_guidelineStart"
+            app:layout_constraintEnd_toStartOf="@id/app_sign_up_guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/signup_error_tv"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            android:textColorHint="@android:color/white"
+            app:endIconTint="@color/colorAccent"
+            app:startIconTint="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent"
+            app:helperText="@string/email_helper_text"
+            android:layout_marginTop="5dp"
+            app:helperTextTextColor="@color/colorAccent"
+            app:startIconDrawable="@drawable/ic_baseline_alternate_email_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_up_email_etv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="@string/prompt_email"
+                android:textColor="@android:color/white"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/app_sign_up_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/app_sign_up_guidelineStart"
+            app:layout_constraintEnd_toStartOf="@id/app_sign_up_guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/app_sign_up_email"
+            android:layout_marginTop="10dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            android:textColorHint="@android:color/white"
+            app:endIconTint="@color/colorAccent"
+            app:startIconTint="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent"
+            app:helperTextTextColor="@color/colorAccent"
+            app:helperText="@string/username_helper_text"
+            app:startIconDrawable="@drawable/ic_baseline_supervised_user_circle_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_up_username_etv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/prompt_username"
+                android:textColor="@android:color/white"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/app_sign_up_fullname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/app_sign_up_guidelineStart"
+            app:layout_constraintEnd_toStartOf="@id/app_sign_up_guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/app_sign_up_username"
+            android:layout_marginTop="10dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            android:textColorHint="@android:color/white"
+            app:endIconTint="@color/colorAccent"
+            app:startIconTint="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent"
+            app:helperTextTextColor="@color/colorAccent"
+            app:helperText="@string/full_name_helper_text"
+            app:startIconDrawable="@drawable/ic_baseline_supervised_user_circle_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_up_fullname_etv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/full_name_prompt"
+                android:textColor="@android:color/white"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/app_sign_up_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/app_sign_up_guidelineStart"
+            app:layout_constraintEnd_toStartOf="@id/app_sign_up_guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/app_sign_up_fullname"
+            android:layout_marginTop="10dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            android:textColorHint="@android:color/white"
+            app:endIconTint="@color/colorAccent"
+            app:startIconTint="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_up_password_etv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/prompt_password"
+                android:textColor="@android:color/white"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/app_sign_up_confirm_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/app_sign_up_guidelineStart"
+            app:layout_constraintEnd_toStartOf="@id/app_sign_up_guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/app_sign_up_password"
+            android:layout_marginTop="10dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/colorAccent"
+            android:textColorHint="@android:color/white"
+            app:endIconTint="@color/colorAccent"
+            app:startIconTint="@color/colorAccent"
+            app:hintTextColor="@color/colorAccent"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_up_confirm_password_etv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/confirm_password_prompt"
+                android:textColor="@android:color/white"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/app_sign_up_main_btn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/app_sign_up"
+            android:visibility="@{isSigningUp?View.INVISIBLE:View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/app_sign_up_confirm_password"
+            app:layout_constraintStart_toStartOf="@id/app_sign_up_confirm_password"
+            app:layout_constraintEnd_toEndOf="@id/app_sign_up_confirm_password"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="15dp"
+            android:backgroundTint="@color/btnColorTwo"
+            android:textColor="@android:color/black" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/app_sign_up_main_btn"
+        app:layout_constraintEnd_toEndOf="@id/app_sign_up_main_btn"
+        app:layout_constraintTop_toTopOf="@id/app_sign_up_main_btn"
+        app:layout_constraintBottom_toBottomOf="@id/app_sign_up_main_btn"
+        android:visibility="@{isSigningUp?View.VISIBLE:View.GONE}"
+        style="@style/Widget.AppCompat.ProgressBar"
+        />
+        <!--layout guidelines-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/app_sign_up_guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="45dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/app_sign_up_guidelineUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/app_sign_up_guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="45dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

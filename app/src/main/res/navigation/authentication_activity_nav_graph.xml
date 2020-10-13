@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authentication_activity_nav_graph"
+    app:startDestination="@id/appLoginFragment">
+
+    <fragment
+        android:id="@+id/appLoginFragment"
+        android:name="com.theGeeksZone.geekszoneChatApp.appAuthentication.ui.login.AppLoginFragment"
+        android:label="Sign In"
+        tools:layout="@layout/fragment_app_login"
+        >
+        <action
+            android:id="@+id/action_appLoginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+        <action
+            android:id="@+id/action_appLoginFragment_to_emailVerificationFrag"
+            app:destination="@id/emailVerificationFrag"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/appLoginFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.theGeeksZone.geekszoneChatApp.appAuthentication.ui.login.SignUpFragment"
+        android:label="Sign Up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_emailVerificationFrag"
+            app:destination="@id/emailVerificationFrag"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/appLoginFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/emailVerificationFrag"
+        android:name="com.theGeeksZone.geekszoneChatApp.appAuthentication.ui.login.EmailVerificationFrag"
+        android:label="Email Verification"
+        tools:layout="@layout/fragment_email_verification" >
+        <action
+            android:id="@+id/action_emailVerificationFrag_to_appLoginFragment"
+            app:destination="@id/appLoginFragment"
+            app:popUpTo="@id/emailVerificationFrag"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            />
+    </fragment>
+</navigation>

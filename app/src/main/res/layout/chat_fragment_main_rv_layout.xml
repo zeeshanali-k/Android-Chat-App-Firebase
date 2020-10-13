@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="isReceiver"
+            type="boolean"
+            />
+        <variable
+            name="chatModelObj"
+            type="com.theGeeksZone.geekszoneChatApp.dataModels.ChatModel"
+            />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        >
+
+        <TextView
+            android:id="@+id/rv_sender_full_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textIsSelectable="true"
+            android:textStyle="bold"
+            android:visibility="@{isReceiver?View.GONE:View.VISIBLE}"
+            android:text="@{chatModelObj.full_name,default=`Zeeshan Ali`}"
+            android:padding="5dp"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/colorAccent"
+            android:layout_alignParentTop="true"
+            android:textSize="14sp"
+            android:layout_alignStart="@id/chat_rv_sender_tv"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/sender_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="2dp"
+            android:visibility="@{isReceiver?View.GONE:View.VISIBLE}"
+            android:background="@android:color/transparent"
+            app:imageViewSetter="@{chatModelObj.member_dp_url}"
+            android:src="@drawable/profile_place_holder"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@id/chat_rv_sender_tv"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/chat_rv_sender_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/sender_chat_shape"
+            android:gravity="start"
+            android:textIsSelectable="true"
+            android:visibility="@{isReceiver?View.GONE:View.VISIBLE}"
+            android:paddingStart="10dp"
+            android:paddingEnd="7dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:fontFamily="monospace"
+            android:text="@{chatModelObj.the_message_string,default=`Hello! How are you!`}"
+            android:layout_below="@id/rv_sender_full_name"
+            android:layout_toEndOf="@id/sender_image"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="100dp"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/chat_rv_sender_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/chat_rv_sender_tv"
+            android:layout_below="@id/chat_rv_sender_tv"
+            android:textColor="@color/colorAccent"
+            android:gravity="end"
+            android:textStyle="bold"
+            android:padding="2dp"
+            android:textSize="12sp"
+            android:visibility="@{isReceiver?View.GONE:View.VISIBLE}"
+            android:layout_marginStart="7dp"
+            android:text="@{chatModelObj.message_time_stamp,default=`2:34 am`}"
+            />
+
+        <!--receiver setup-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/chat_rv_receiver_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/receiver_chat_shape"
+            android:gravity="end"
+            android:textIsSelectable="true"
+            android:paddingEnd="10dp"
+            android:paddingStart="7dp"
+            android:paddingTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="2dp"
+            android:paddingBottom="5dp"
+            app:fontFamily="monospace"
+            android:text="@{chatModelObj.the_message_string,default=`I am fine.`}"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="@{isReceiver?View.VISIBLE:View.INVISIBLE}"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="100dp"
+             />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/chat_rv_receiver_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/chat_rv_receiver_tv"
+            android:layout_below="@id/chat_rv_receiver_tv"
+            android:textColor="@color/colorAccent"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:padding="2dp"
+            android:layout_marginEnd="7dp"
+            android:textSize="12sp"
+            android:visibility="@{isReceiver?View.VISIBLE:View.INVISIBLE}"
+            android:layout_marginStart="5dp"
+            android:text="@{chatModelObj.message_time_stamp,default=`2:34 am`}"
+            />
+
+
+    </RelativeLayout>
+</layout>

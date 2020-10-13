@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.theGeeksZone.geekszoneChatApp.dataModels.User"/>
+        <import type="java.util.List"/>
+        <import type="androidx.lifecycle.LiveData"/>
+
+        <variable
+            name="userDataList"
+            type="LiveData&lt;List&lt;User>>" />
+
+        <!--<variable
+            name="searchText"
+            type="String" />-->
+
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".mainPkg.usersPkg.UsersListFragment"
+        android:background="@color/colorPrimaryDark"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/users_list_frag_rv"
+            app:usersListFragRvSetter="@{userDataList}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

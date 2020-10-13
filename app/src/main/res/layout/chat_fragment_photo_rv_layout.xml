@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="isReceiver"
+            type="boolean"
+            />
+        <variable
+            name="chatModelObj"
+            type="com.theGeeksZone.geekszoneChatApp.dataModels.ChatModel"
+            />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/photo_rv_sender_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="@{isReceiver?View.GONE:View.VISIBLE}"
+            android:background="@android:color/transparent"
+            app:imageViewSetter="@{chatModelObj.member_dp_url}"
+            android:src="@drawable/profile_place_holder"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/photo_rv_sender_image"
+            app:cardCornerRadius="10dp"
+            android:visibility="@{isReceiver?View.GONE:View.VISIBLE}"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sender_chat_shape">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/chat_frag_sender_photo_name_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{chatModelObj.full_name,default=`Zeeshan Ali`}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_marginStart="5dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    simpleImageViewSetter="@{chatModelObj.attachment_url}"
+                    android:id="@+id/chat_frag_sender_photo_dp_iv"
+                    app:layout_constraintTop_toBottomOf="@id/chat_frag_sender_photo_name_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/geekszonebg"
+                    android:contentDescription="@string/attachment_contentDescription" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/chat_frag_sender_photo_time_tv"
+                    android:text="@{chatModelObj.message_time_stamp,default=`2:33 am`}"
+                    android:textSize="12sp"
+                    style="@style/MTvCustomStyle"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            app:cardCornerRadius="10dp"
+            android:visibility="@{isReceiver?View.VISIBLE:View.GONE}"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:background="@drawable/receiver_chat_shape"
+                >
+                <ImageView
+                    android:id="@+id/chat_frag_receiver_photo_dp_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/geekszonebg"
+                    simpleImageViewSetter="@{chatModelObj.attachment_url}"
+                    android:contentDescription="@string/attachment_contentDescription" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/MTvCustomStyle"
+                    android:textSize="12sp"
+                    android:text="@{chatModelObj.message_time_stamp,default=`2:33 am`}"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</layout>

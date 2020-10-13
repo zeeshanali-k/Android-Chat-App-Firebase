@@ -1,0 +1,43 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!--material button custom style-->
+
+    <style name="MBCustomStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="iconTint">@color/colorAccent</item>
+        <item name="strokeColor">@color/colorAccent</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="rippleColor">@color/colorAccent</item>
+
+    </style>
+
+    <!--material text view custom style-->
+
+    <style name="MTvCustomStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:padding">5dp</item>
+
+    </style>
+
+    <!--material fab custom style-->
+
+    <style name="CustomFABStyle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="tint">@color/colorAccent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="elevation">0dp</item>
+        <item name="rippleColor">@color/colorAccent</item>
+        <item name="android:padding">0dp</item>
+        <item name="borderWidth">0dp</item>
+
+    </style>
+
+</resources>
