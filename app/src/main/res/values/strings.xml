@@ -5,7 +5,6 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
@@ -13,8 +12,8 @@
     <string name="confirm_password_prompt">Confirm Password</string>
     <string name="app_sign_up">Sign Up</string>
     <string name="email_helper_text">yourname@gmail.com</string>
-    <string name="username_helper_text">e.g, papakipari</string>
-    <string name="full_name_helper_text">e.g, Nasir Khan Jan</string>
+    <string name="username_helper_text">e.g, johnsmith</string>
+    <string name="full_name_helper_text">e.g, John Smith</string>
     <string name="full_name_prompt">Full Name</string>
     <string name="app_login">Login</string>
     <string name="email_verfication_promt">A verification email has been sent to your email.Please Check your inbox (in some cases check spam) and verify to continue. If you didn\'t receive any email regarding email verification, click below to resend verification email.</string>
@@ -26,7 +25,7 @@
     <string name="type_here_hint">Type Here</string>
 
     <!--fcm key-->
-    <string name="fcm_app_key">key=AAAAtiGDtSo:APA91bGOR963oHLpHh6UjCeWamdmjNCeeA2fMuuoVtCPpUwU8WTOr13wkezI6ZU2oOpt2X7ltptLgESEtWX_hzn5iCARBW8gAsiwrIDGDFwE6QfPdCb6NOeb0_IaYS89XyItTJvMqsTi</string>
+    <string name="fcm_app_key">key=YOUR FIREBASE API KEY HERE</string>
     <string name="video_call_type_string">Video Call</string>
     <string name="audio_call_type_string">Audio Call</string>
 
