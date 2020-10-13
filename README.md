@@ -1,5 +1,5 @@
 # Geeks-Zone
-A simple group chat android app using Firebase (Firebase Authentication,FCM, Cloud Firestore). It uses architecture Components which include View Model, Navigation,Data Binding and Live Data. It uses Retrofit for network requests.
+A simple group chat android app built using Firebase (Firebase Authentication,FCM, Cloud Firestore). It uses architecture Components which include View Model, Navigation,Data Binding and Live Data. It uses Retrofit for network requests.
 
 What you need to do to make this app working?
 
