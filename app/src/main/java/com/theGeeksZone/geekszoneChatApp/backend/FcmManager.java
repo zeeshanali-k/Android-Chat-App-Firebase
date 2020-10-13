@@ -44,9 +44,4 @@ public class FcmManager extends FirebaseMessagingService {
 
     }
 
-    @Override
-    public void onMessageSent(@NonNull String s) {
-        super.onMessageSent(s);
-    }
-
 }
